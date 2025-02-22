@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@nestjs/mapped-types": "*",
+    "qrcode": "^1.5.4"
+  }
+}
