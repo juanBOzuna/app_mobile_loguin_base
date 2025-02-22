@@ -1,6 +1,7 @@
 import 'package:equipos_lab_qr_scan/controllers/authController.dart';
 import 'package:equipos_lab_qr_scan/controllers/utils/login_dto.dart';
 import 'package:equipos_lab_qr_scan/presentation/home/home.dart';
+import 'package:equipos_lab_qr_scan/presentation/login/utils/register/register.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -31,15 +32,15 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          Positioned.fill(
-            child: Opacity(
-              opacity: 0.8,
-              child: Image.asset(
-                'assets/fondo_login.png',
-                fit: BoxFit.none,
-              ),
-            ),
-          ),
+          // Positioned.fill(
+          //   child: Opacity(
+          //     opacity: 0.8,
+          //     child: Image.asset(
+          //       'assets/fondo_login.png',
+          //       fit: BoxFit.none,
+          //     ),
+          //   ),
+          // ),
           Center(
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
@@ -52,7 +53,9 @@ class _LoginPageState extends State<LoginPage> {
                       Text(
                         'Hola De nuevo! 👋',
                         style: GoogleFonts.openSans(
-                            fontSize: 32, fontWeight: FontWeight.w500),
+                            color: const Color.fromARGB(255, 58, 158, 74),
+                            fontSize: 32,
+                            fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -86,18 +89,18 @@ class _LoginPageState extends State<LoginPage> {
                                 hintText: 'Ingrese Su Usuario',
                                 labelText: 'Usuario',
                                 prefixIcon: const Icon(Icons.person_2_outlined,
-                                    color: Colors.red),
+                                    color: Color.fromARGB(255, 58, 158, 74)),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(18),
                                   borderSide: const BorderSide(
-                                    color: Color.fromARGB(146, 228, 93, 83),
+                                    color: Color.fromARGB(255, 58, 158, 74),
                                     width: 1,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(18),
                                   borderSide: const BorderSide(
-                                    color: Color.fromARGB(80, 228, 93, 83),
+                                    color: Color.fromARGB(80, 58, 158, 74),
                                     width: 1,
                                   ),
                                 ),
@@ -132,19 +135,21 @@ class _LoginPageState extends State<LoginPage> {
                                   fillColor: const Color.fromARGB(20, 0, 0, 0),
                                   hintText: 'Ingrese Su Contraseña',
                                   labelText: 'Contraseña',
-                                  icon: const Icon(Icons.lock_open_outlined,
-                                      color: Colors.red),
+                                  icon: const Icon(
+                                    Icons.lock_open_outlined,
+                                    color: Color.fromARGB(146, 58, 158, 74),
+                                  ),
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(18),
                                     borderSide: const BorderSide(
-                                      color: Color.fromARGB(146, 228, 93, 83),
+                                      color: Color.fromARGB(146, 58, 158, 74),
                                       width: 1,
                                     ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(18),
                                     borderSide: const BorderSide(
-                                      color: Color.fromARGB(80, 228, 93, 83),
+                                      color: Color.fromARGB(80, 58, 158, 74),
                                       width: 1,
                                     ),
                                   ),
@@ -172,10 +177,30 @@ class _LoginPageState extends State<LoginPage> {
                           const SizedBox(height: 35),
                           Obx(() => _authcontroller.isCharging.value
                               ? const CircularProgressIndicator()
-                              : LoginButton(
-                                  authcontroller: _authcontroller,
-                                  size: size,
-                                  formKey: formKey,
+                              : Column(
+                                  children: [
+                                    LoginButton(
+                                      authcontroller: _authcontroller,
+                                      size: size,
+                                      formKey: formKey,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 25),
+                                      child: GestureDetector(
+                                        onTap: () =>
+                                            Get.to(() => const RegisterPage()),
+                                        child: Text(
+                                          'Registrarme 👉',
+                                          style: GoogleFonts.openSans(
+                                            fontSize: 17,
+                                            fontWeight: FontWeight.w500,
+                                            color: const Color.fromARGB(
+                                                255, 58, 158, 74),
+                                          ),
+                                        ),
+                                      ),
+                                    )
+                                  ],
                                 ))
                         ],
                       ),
@@ -210,7 +235,7 @@ class LoginButton extends StatelessWidget {
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             padding: const EdgeInsets.only(top: 12, bottom: 12),
-            backgroundColor: const Color.fromARGB(255, 248, 88, 88),
+            backgroundColor: const Color.fromARGB(255, 58, 158, 74),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
             ),
