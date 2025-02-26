@@ -40,7 +40,9 @@ class Authcontroller extends GetxController {
       token.value = response.data['accessToken'];
       refreshToken.value = response.data['refreshToken'];
       isLogged.value = true;
-      Get.off(() => const Home());
+      Get.off(() => Home(
+            authController: Get.find<Authcontroller>(),
+          ));
     } catch (e) {
       if (e is dio.DioException) {
         // Get.defaultDialog(
