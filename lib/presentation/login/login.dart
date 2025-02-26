@@ -188,7 +188,11 @@ class _LoginPageState extends State<LoginPage> {
                                       padding: const EdgeInsets.only(top: 25),
                                       child: GestureDetector(
                                         onTap: () =>
-                                            Get.to(() => const RegisterPage()),
+                                            // Get.off(() => const RegisterPage()),
+                                            Get.offAll(() => RegisterPage(
+                                                authController: Get.find<
+                                                    Authcontroller>())),
+                                        // Get.to(() => const RegisterPage()),
                                         child: Text(
                                           'Registrarme 👉',
                                           style: GoogleFonts.openSans(

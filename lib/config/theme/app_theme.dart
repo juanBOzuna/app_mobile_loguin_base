@@ -5,6 +5,6 @@ class AppTheme {
   ThemeData getTheme() => ThemeData(
       useMaterial3: true,
       textTheme: GoogleFonts.openSansTextTheme(),
-      colorSchemeSeed: Colors.redAccent,
+      colorSchemeSeed: Colors.green,
       appBarTheme: const AppBarTheme(elevation: 10));
 }

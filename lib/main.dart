@@ -23,11 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: AppTheme().getTheme(),
       home: Obx(() {
-        return authcontroller.isLogged.value
-            ? Home(
-                authController: authcontroller,
-              )
-            : const LoginPage();
+        return authcontroller.isLogged.value ? const Home() : const LoginPage();
       }),
     );
   }
